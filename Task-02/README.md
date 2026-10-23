@@ -1,4 +1,4 @@
-# Task 2: Maven Build & Test
+# Task 2: Maven-Build & Test
 
 ## Objective
 
