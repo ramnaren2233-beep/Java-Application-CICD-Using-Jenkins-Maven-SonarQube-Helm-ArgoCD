@@ -1,0 +1,30 @@
+# Git files
+.git
+.gitignore
+
+# Maven build output
+target/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Local test artifacts
+coverage/
