@@ -2,6 +2,7 @@
 
 ## 1. What I Did
 
+
 | S.No | What I Did | Status |
 |---:|---|---|
 | 1 | Created a Java application using Maven | ✅ Completed |
