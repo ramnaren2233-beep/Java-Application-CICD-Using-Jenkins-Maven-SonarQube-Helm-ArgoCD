@@ -1,0 +1,6 @@
+apiVersion: v2
+name: task6-java-app
+description: Reusable Helm chart for deploying the Java application
+type: application
+version: 0.1.0
+appVersion: "8ac4bd7"
