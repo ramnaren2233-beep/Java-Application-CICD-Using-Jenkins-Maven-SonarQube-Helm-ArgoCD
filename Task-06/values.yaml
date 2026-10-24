@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  repository: docker.io/naren2026aws/task4-java-app
+  tag: "8ac4bd7"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+config:
+  APP_ENV: "production"
+
+secret:
+  enabled: true
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+  limits:
+    cpu: "300m"
+    memory: "256Mi"
+
+probes:
+  liveness:
+    path: /health
+    initialDelaySeconds: 20
+    periodSeconds: 10
+  readiness:
+    path: /health
+    initialDelaySeconds: 10
+    periodSeconds: 5
+
+containerPort: 8080
