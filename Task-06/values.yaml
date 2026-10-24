@@ -35,3 +35,7 @@ probes:
     periodSeconds: 5
 
 containerPort: 8080
+
+ingress:
+  enabled: false
+  className: traefik
