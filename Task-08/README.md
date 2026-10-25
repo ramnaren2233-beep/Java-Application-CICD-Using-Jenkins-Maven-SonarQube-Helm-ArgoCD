@@ -1,4 +1,4 @@
-# Task 8: Argo CD
+# Task 8: Argo-CD
 
 ## Implementation Summary
 
