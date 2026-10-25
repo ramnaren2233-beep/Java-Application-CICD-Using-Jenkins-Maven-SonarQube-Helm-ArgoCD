@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD.git
     targetRevision: main
-    path: Task-06
+    path: Task-08/k8s
 
   destination:
     server: https://kubernetes.default.svc
