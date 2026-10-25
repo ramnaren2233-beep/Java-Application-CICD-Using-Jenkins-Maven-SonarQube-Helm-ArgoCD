@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task8-gitops-demo
+  labels:
+    app: task8-gitops-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: task8-gitops-demo
+  template:
+    metadata:
+      labels:
+        app: task8-gitops-demo
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27
+          ports:
+            - name: http
+              containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
