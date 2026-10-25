@@ -5,7 +5,7 @@ metadata:
   labels:
     app: task8-gitops-demo
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: task8-gitops-demo
