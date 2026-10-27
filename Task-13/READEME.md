@@ -1,5 +1,9 @@
 # Task 13: Monitoring & Logging
 
+## Objective
+
+Demonstrate application monitoring and troubleshooting using Kubernetes and Argo CD. Monitor pod status, CPU and memory usage, pod restarts, application logs, and Argo CD application health.
+
 ## Implementation Summary
 
 | S.No | What I Did | Status |
