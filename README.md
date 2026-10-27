@@ -1,4 +1,4 @@
-# Java Application CI/CD Using Jenkins-Maven-SonarQube-Docker-Helm & Argo CD
+# Java-Application-CI/CD-Using-Jenkins-Maven-SonarQube-Docker-Helm & Argo CD
 
 ## 1. Project Overview
 
