@@ -20,8 +20,6 @@ pipeline {
                     sh '''
                         export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64
                         export PATH=$JAVA_HOME/bin:$PATH
-                        java -version
-                        mvn -version
                         mvn -B clean package -DskipTests
                     '''
                 }
@@ -65,7 +63,6 @@ pipeline {
         stage('5. Docker Build & Image Versioning') {
             steps {
                 sh '''
-                    docker --version
                     docker build -t ${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG} Task-04
                     docker images ${DOCKERHUB_USER}/${IMAGE_NAME}
                 '''
@@ -82,10 +79,69 @@ pipeline {
                     )
                 ]) {
                     sh '''
+                        set +x
                         echo "$DOCKER_TOKEN" | docker login \
                           -u "$DOCKER_USER" --password-stdin
                         docker push ${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}
                         docker logout
+                    '''
+                }
+            }
+        }
+
+        stage('7. Update Helm Configuration') {
+            steps {
+                sh '''
+                    set -eu
+                    test -f Task-09/deployment/values.yaml
+                    sed -i -E \
+                      "s/^([[:space:]]*tag:).*/\\1 \\"${IMAGE_TAG}\\"/" \
+                      Task-09/deployment/values.yaml
+
+                    echo "Updated Task-09 image configuration:"
+                    cat Task-09/deployment/values.yaml
+                '''
+            }
+        }
+
+        stage('8. Commit Deployment Change') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'github-push-token',
+                        usernameVariable: 'GIT_USER',
+                        passwordVariable: 'GIT_TOKEN'
+                    )
+                ]) {
+                    sh '''
+                        set -eu
+                        set +x
+
+                        git config user.name "Jenkins Task9"
+                        git config user.email "jenkins-task9@localhost"
+
+                        cat > "$WORKSPACE/.git-askpass-task9.sh" <<'ASKPASS'
+#!/bin/sh
+case "$1" in
+  *Username*) printf '%s\\n' "$GIT_USER" ;;
+  *) printf '%s\\n' "$GIT_TOKEN" ;;
+esac
+ASKPASS
+                        chmod 700 "$WORKSPACE/.git-askpass-task9.sh"
+                        trap 'rm -f "$WORKSPACE/.git-askpass-task9.sh"' EXIT
+
+                        git add -- Task-09/deployment/values.yaml
+                        git diff --cached --check
+                        git diff --cached -- Task-09/deployment/values.yaml
+
+                        git commit -m "Task 9: update image tag to ${IMAGE_TAG}" \
+                          -- Task-09/deployment/values.yaml
+
+                        GIT_ASKPASS="$WORKSPACE/.git-askpass-task9.sh" \
+                        GIT_TERMINAL_PROMPT=0 \
+                          git push origin HEAD:main
+
+                        echo "Task-09 deployment configuration committed and pushed."
                     '''
                 }
             }
