@@ -11,7 +11,13 @@ pipeline {
         stage('2. Maven Build') {
             steps {
                 dir('Task-04') {
-                    sh 'mvn -B clean package -DskipTests'
+                    sh '''
+                        export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64
+                        export PATH=$JAVA_HOME/bin:$PATH
+                        java -version
+                        mvn -version
+                        mvn -B clean package -DskipTests
+                    '''
                 }
             }
         }
@@ -19,7 +25,11 @@ pipeline {
         stage('3. Unit Test') {
             steps {
                 dir('Task-04') {
-                    sh 'mvn -B test'
+                    sh '''
+                        export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64
+                        export PATH=$JAVA_HOME/bin:$PATH
+                        mvn -B test
+                    '''
                 }
             }
             post {
@@ -29,14 +39,30 @@ pipeline {
                 }
             }
         }
+
+        stage('4. SonarQube Analysis') {
+            steps {
+                dir('Task-04') {
+                    withSonarQubeEnv('SonarQube') {
+                        sh '''
+                            export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64
+                            export PATH=$JAVA_HOME/bin:$PATH
+                            mvn -B sonar:sonar \
+                              -Dsonar.projectKey=task9-java-app \
+                              -Dsonar.projectName=Task9-Java-App
+                        '''
+                    }
+                }
+            }
+        }
     }
 
     post {
         success {
-            echo 'Task 9 Maven Build and Unit Tests completed.'
+            echo 'Task 9: Maven Build, Unit Test and SonarQube Analysis completed.'
         }
         failure {
-            echo 'Build failed. Check Console Output.'
+            echo 'Build failed. Check Console Output for the exact error.'
         }
     }
 }
