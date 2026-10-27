@@ -47,7 +47,7 @@ pipeline {
                         sh '''
                             export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64
                             export PATH=$JAVA_HOME/bin:$PATH
-                            mvn -B sonar:sonar \
+                            mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:5.3.0.6276:sonar \
                               -Dsonar.projectKey=task9-java-app \
                               -Dsonar.projectName=Task9-Java-App
                         '''
