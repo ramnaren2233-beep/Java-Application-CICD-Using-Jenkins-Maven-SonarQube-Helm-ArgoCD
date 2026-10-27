@@ -1,6 +1,6 @@
 image:
-  repository: naren2026aws/task9-java-app
-  tag: "11"
+  repository: naren2026aws/task10-java-app
+  tag: "8"
   pullPolicy: IfNotPresent
 
 service:
