@@ -5,6 +5,7 @@ pipeline {
         DOCKERHUB_USER = 'naren2026aws'
         IMAGE_NAME = 'task9-java-app'
         IMAGE_TAG = "${BUILD_NUMBER}"
+        DEPLOY_VALUES = 'Task-09/Task-09/deployment/values.yaml'
     }
 
     stages {
@@ -93,13 +94,14 @@ pipeline {
             steps {
                 sh '''
                     set -eu
-                    test -f Task-09/deployment/values.yaml
+                    test -f "$DEPLOY_VALUES"
+
                     sed -i -E \
                       "s/^([[:space:]]*tag:).*/\\1 \\"${IMAGE_TAG}\\"/" \
-                      Task-09/deployment/values.yaml
+                      "$DEPLOY_VALUES"
 
-                    echo "Updated Task-09 image configuration:"
-                    cat Task-09/deployment/values.yaml
+                    echo "Updated Task-09 deployment configuration:"
+                    cat "$DEPLOY_VALUES"
                 '''
             }
         }
@@ -130,18 +132,22 @@ ASKPASS
                         chmod 700 "$WORKSPACE/.git-askpass-task9.sh"
                         trap 'rm -f "$WORKSPACE/.git-askpass-task9.sh"' EXIT
 
-                        git add -- Task-09/deployment/values.yaml
+                        git add -- "$DEPLOY_VALUES"
                         git diff --cached --check
-                        git diff --cached -- Task-09/deployment/values.yaml
 
-                        git commit -m "Task 9: update image tag to ${IMAGE_TAG}" \
-                          -- Task-09/deployment/values.yaml
+                        if git diff --cached --quiet; then
+                            echo "No deployment configuration changes to commit."
+                        else
+                            git diff --cached -- "$DEPLOY_VALUES"
+                            git commit -m "Task 9: update image tag to ${IMAGE_TAG}" \
+                              -- "$DEPLOY_VALUES"
 
-                        GIT_ASKPASS="$WORKSPACE/.git-askpass-task9.sh" \
-                        GIT_TERMINAL_PROMPT=0 \
-                          git push origin HEAD:main
+                            GIT_ASKPASS="$WORKSPACE/.git-askpass-task9.sh" \
+                            GIT_TERMINAL_PROMPT=0 \
+                              git push origin HEAD:main
+                        fi
 
-                        echo "Task-09 deployment configuration committed and pushed."
+                        echo "Task-09 deployment commit stage completed."
                     '''
                 }
             }
