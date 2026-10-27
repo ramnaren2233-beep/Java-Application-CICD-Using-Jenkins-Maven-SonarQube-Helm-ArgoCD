@@ -1,0 +1,8 @@
+image:
+  repository: naren2026aws/task9-java-app
+  tag: "9"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
