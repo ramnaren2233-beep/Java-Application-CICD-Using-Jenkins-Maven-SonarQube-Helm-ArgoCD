@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: task10-gitops
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD.git
+    targetRevision: main
+    path: Task-10-GitOps/task10-chart
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: task10
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
