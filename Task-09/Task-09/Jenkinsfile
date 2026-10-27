@@ -2,11 +2,41 @@ pipeline {
     agent any
 
     stages {
-        stage('Task 9 - Pipeline Setup') {
+        stage('1. Checkout') {
             steps {
-                echo 'Task 9 Jenkins CI/CD Pipeline'
-                echo 'Preparing Maven, SonarQube, Docker and Helm stages'
+                echo 'Source code checked out from GitHub'
             }
+        }
+
+        stage('2. Maven Build') {
+            steps {
+                dir('Task-04') {
+                    sh 'mvn -B clean package -DskipTests'
+                }
+            }
+        }
+
+        stage('3. Unit Test') {
+            steps {
+                dir('Task-04') {
+                    sh 'mvn -B test'
+                }
+            }
+            post {
+                always {
+                    junit allowEmptyResults: true,
+                          testResults: 'Task-04/target/surefire-reports/*.xml'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Task 9 Maven Build and Unit Tests completed.'
+        }
+        failure {
+            echo 'Build failed. Check Console Output.'
         }
     }
 }
