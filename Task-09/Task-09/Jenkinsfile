@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Task 9 - Pipeline Setup') {
+            steps {
+                echo 'Task 9 Jenkins CI/CD Pipeline'
+                echo 'Preparing Maven, SonarQube, Docker and Helm stages'
+            }
+        }
+    }
+}
