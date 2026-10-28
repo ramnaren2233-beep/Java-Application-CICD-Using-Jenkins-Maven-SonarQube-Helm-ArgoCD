@@ -1,168 +1,174 @@
-# Java-Application-CI/CD-Using-Jenkins-Maven-SonarQube-Docker-Helm & Argo CD
+# Java Application CI/CD Using Jenkins, Maven, SonarQube, Docker, Helm & Argo CD
 
 ## 1. Project Overview
 
-This project demonstrates a production-oriented CI/CD workflow for a Java application using Jenkins for Continuous Integration, SonarQube for code quality, Docker for containerization, Helm for Kubernetes packaging, and Argo CD for GitOps-based Continuous Deployment.
+A production-oriented Java Application CI/CD workflow using Jenkins, Maven, SonarQube, Docker, Docker Hub, Helm, Kubernetes and Argo CD (GitOps).
 
-The project is completed in **13 tasks**. Each task has its own documentation file and screenshot folder, linked below.
-
-## 2. Architecture
-
-```text
-GitHub
-   |
-   v
-Jenkins Pipeline
-   |
-   v
-Maven Build and Test
-   |
-   v
-SonarQube Analysis
-   |
-   v
-Docker Image Build
-   |
-   v
-Docker Hub (Versioned Image)
-   |
-   v
-Update Helm Chart values.yaml
-   |
-   v
-Git Commit and Push
-   |
-   v
-Argo CD (Synced and Healthy)
-   |
-   v
-Kubernetes Deployment
-   |
-   v
-Running Java Application
-```
+| Field | Details |
+|---|---|
+| Project Name | Java Application CI/CD Using Jenkins, Maven, SonarQube, Helm & Argo CD |
+| Tools Used | Java 21, Maven, Jenkins, SonarQube, Docker, Docker Hub, Helm, Kubernetes, Argo CD, GitHub |
+| Application Architecture | Java Application → Docker Image → Helm Chart → Kubernetes |
+| CI/CD Pipeline | GitHub → Jenkins → Maven Build & Test → SonarQube → Docker Build → Docker Hub → Helm values update → Argo CD → Kubernetes |
+| GitHub Repository | [Open Project Repository](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD) |
+| Application URL | [Open Java Application](http://98.81.154.45:8080/) |
+| Final Submission | Task README, Screenshots and Execution Evidence |
 
 > Jenkins handles Continuous Integration. Argo CD handles Continuous Deployment. Jenkins does not deploy directly using `kubectl`.
 
-## 3. Submission Requirements and URLs
+## 2. Project Tree Flow (Task 01–13)
 
-| S.No | Requirement | URL |
+```text
+📦 Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD
+│
+├── 📄 README.md
+│
+├── 🏗️ PHASE 1: Application & Build
+│   ├── 📂 Task-01 - Java Application
+│   ├── 📂 Task-02 - Maven Build & Test
+│   └── 📂 Task-03 - SonarQube
+│
+├── 🐳 PHASE 2: Containerization & Registry
+│   ├── 📂 Task-04 - Docker
+│   └── 📂 Task-05 - Container Registry
+│
+├── ☸️ PHASE 3: Kubernetes & GitOps
+│   ├── 📂 Task-06 - Helm
+│   ├── 📂 Task-07 - Kubernetes
+│   └── 📂 Task-08 - Argo CD
+│
+├── 🚀 PHASE 4: CI/CD Automation
+│   ├── 📂 Task-09 - Jenkins CI Pipeline
+│   └── 📂 Task-10 - Jenkins → Argo CD GitOps
+│
+└── 🔐 PHASE 5: Security & Operations
+    ├── 📂 Task-11 - Secrets & Security
+    ├── 📂 Task-12 - Deployment & Rollback
+    └── 📂 Task-13 - Monitoring & Logging
+```
+
+## 3. Task README & Screenshots
+
+| S.No | Task Topic | README Link | Screenshot Link |
+|---:|---|---|---|
+| 01 | Java Application | [Task 01 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-01/README.md) | [Task 01 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-01/screenshots) |
+| 02 | Maven Build & Test | [Task 02 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-02/README.md) | [Task 02 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-02/screenshots) |
+| 03 | SonarQube | [Task 03 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-03/README.md) | [Task 03 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-03/screenshots) |
+| 04 | Docker | [Task 04 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-04/README.md) | [Task 04 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-04/screenshots) |
+| 05 | Container Registry | [Task 05 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-05/README.md) | [Task 05 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-05/screenshots) |
+| 06 | Helm | [Task 06 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-06/README.md) | [Task 06 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-06/screenshots) |
+| 07 | Kubernetes | [Task 07 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-07/README.md) | [Task 07 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-07/screenshots) |
+| 08 | Argo CD | [Task 08 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-08/README.md) | [Task 08 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-08/screenshots) |
+| 09 | Jenkins CI Pipeline | [Task 09 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-09/README.md) | [Task 09 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-09/screenshots) |
+| 10 | Jenkins → Argo CD GitOps | [Task 10 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/README.md) | [Task 10 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-10/screenshots) |
+| 11 | Secrets & Security | [Task 11 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-11/README.md) | [Task 11 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-11/screenshots) |
+| 12 | Deployment & Rollback | [Task 12 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-12/README.md) | [Task 12 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-12/screenshots) |
+| 13 | Monitoring & Logging | [Task 13 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-13/README.md) | [Task 13 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-13/screenshots) |
+
+## 4. Key Project Files
+
+| S.No | Requirement | File Link |
 |---:|---|---|
-| 1 | GitHub Repository | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD.git |
-| 2 | Java Application | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-04/src/main/java/com/example/App.java |
-| 3 | Maven pom.xml | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-02/pom.xml |
-| 4 | Dockerfile | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-04/Dockerfile |
-| 5 | Jenkinsfile | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-09/Task-09/Jenkinsfile |
-| 6 | Helm Chart | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/Chart.yaml |
-| 7 | Argo CD Configuration | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-08/Task-08/argocd-application.yaml |
-| 8 | Kubernetes Configuration | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/deployment.yaml |
-| 9 | Container Registry | https://hub.docker.com/r/naren2026aws/task10-java-app/tags |
-| 10 | SonarQube / CI Job Reference | http://54.173.142.117:8080/job/Task9-Java-CI-Pipeline/ |
-| 11 | README.md | https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/README.md |
-| 12 | Application URL | http://98.81.154.45:8080/ |
+| 01 | Java Application | [App.java](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-04/src/main/java/com/example/App.java) |
+| 02 | Maven Build File | [pom.xml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-02/pom.xml) |
+| 03 | Dockerfile | [Dockerfile](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-04/Dockerfile) |
+| 04 | Jenkins Pipeline | [Jenkinsfile](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-09/Task-09/Jenkinsfile) |
+| 05 | Helm Chart | [Chart.yaml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/Chart.yaml) |
+| 06 | Kubernetes Deployment | [deployment.yaml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/deployment.yaml) |
+| 07 | Argo CD Application | [argocd-application.yaml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-08/Task-08/argocd-application.yaml) |
+| 08 | Container Registry | [Docker Hub Image Tags](https://hub.docker.com/r/naren2026aws/task10-java-app/tags) |
+| 09 | Jenkins CI Job | [Open Jenkins Job](http://54.173.142.117:8080/job/Task9-Java-CI-Pipeline/) |
 
-## 4. Task Documentation and Screenshots
+## 5. CI/CD Pipeline Flow
 
-Click a task name to open its documentation. Click **Screenshots** to open its evidence folder.
+```text
+Developer Pushes Code to GitHub
+             │
+             ▼
+       Jenkins Pipeline
+             │
+             ▼
+     Maven Build & Test
+             │
+             ▼
+      SonarQube Analysis
+             │
+             ▼
+        Docker Build
+             │
+             ▼
+ Docker Hub (Versioned Image)
+             │
+             ▼
+  Update Helm values.yaml
+             │
+             ▼
+    Git Commit and Push
+             │
+             ▼
+ Argo CD (Synced and Healthy)
+             │
+             ▼
+  Kubernetes Deployment
+             │
+             ▼
+  Running Java Application
+```
 
-| S.No | Task | Documentation | Screenshots | Status |
-|---:|---|---|---|---|
-| 1 | Java Application | [README](Task-01/README.md) | [Screenshots](Task-01/screenshots) | ✅ Completed |
-| 2 | Maven Build & Test | [README](Task-02/README.md) | [Screenshots](Task-02/screenshots) | ✅ Completed |
-| 3 | SonarQube | [README](Task-03/README.md) | [Screenshots](Task-03/screenshots) | ✅ Completed |
-| 4 | Docker | [README](Task-04/README.md) | [Screenshots](Task-04/screenshots) | ✅ Completed |
-| 5 | Container Registry | [README](Task-05/README.md) | [Screenshots](Task-05/screenshots) | ✅ Completed |
-| 6 | Helm | [README](Task-06/README.md) | [Screenshots](Task-06/screenshots) | ✅ Completed |
-| 7 | Kubernetes | [README](Task-07/README.md) | [Screenshots](Task-07/screenshots) | ✅ Completed |
-| 8 | Argo CD | [README](Task-08/README.md) | [Screenshots](Task-08/screenshots) | ✅ Completed |
-| 9 | Jenkins CI Pipeline | [README](Task-09/README.md) | [Screenshots](Task-09/screenshots) | ✅ Completed |
-| 10 | Jenkins → Argo CD GitOps | [README](Task-10/README.md) | [Screenshots](Task-10/screenshots) | ✅ Completed |
-| 11 | Secrets & Security | [README](Task-11/README.md) | [Screenshots](Task-11/screenshots) | ✅ Completed |
-| 12 | Deployment & Rollback | [README](Task-12/README.md) | [Screenshots](Task-12/screenshots) | ✅ Completed |
-| 13 | Monitoring & Logging | [README](Task-13/README.md) | [Screenshots](Task-13/screenshots) | ✅ Completed |
+## 6. Security (Important)
 
-## 5. Project Tree (Click to Open)
+Security evidence is documented in [Task 11 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-11/README.md) and [Task 11 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-11/screenshots).
 
-- 📁 **Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD**
-  - 📁 [Task-01 — Java Application](Task-01)
-    - 📄 [README.md](Task-01/README.md)
-    - 🖼️ [screenshots](Task-01/screenshots)
-  - 📁 [Task-02 — Maven Build & Test](Task-02)
-    - 📄 [README.md](Task-02/README.md)
-    - 📄 [pom.xml](Task-02/pom.xml)
-    - 🖼️ [screenshots](Task-02/screenshots)
-  - 📁 [Task-03 — SonarQube](Task-03)
-    - 📄 [README.md](Task-03/README.md)
-    - 🖼️ [screenshots](Task-03/screenshots)
-  - 📁 [Task-04 — Docker](Task-04)
-    - 📄 [README.md](Task-04/README.md)
-    - 📄 [Dockerfile](Task-04/Dockerfile)
-    - ☕ [App.java](Task-04/src/main/java/com/example/App.java)
-    - 🖼️ [screenshots](Task-04/screenshots)
-  - 📁 [Task-05 — Container Registry](Task-05)
-    - 📄 [README.md](Task-05/README.md)
-    - 🖼️ [screenshots](Task-05/screenshots)
-  - 📁 [Task-06 — Helm](Task-06)
-    - 📄 [README.md](Task-06/README.md)
-    - 🖼️ [screenshots](Task-06/screenshots)
-  - 📁 [Task-07 — Kubernetes](Task-07)
-    - 📄 [README.md](Task-07/README.md)
-    - 🖼️ [screenshots](Task-07/screenshots)
-  - 📁 [Task-08 — Argo CD](Task-08)
-    - 📄 [README.md](Task-08/README.md)
-    - 📄 [argocd-application.yaml](Task-08/Task-08/argocd-application.yaml)
-    - 🖼️ [screenshots](Task-08/screenshots)
-  - 📁 [Task-09 — Jenkins CI Pipeline](Task-09)
-    - 📄 [README.md](Task-09/README.md)
-    - 📄 [Jenkinsfile](Task-09/Task-09/Jenkinsfile)
-    - 🖼️ [screenshots](Task-09/screenshots)
-  - 📁 [Task-10 — Jenkins → Argo CD GitOps](Task-10)
-    - 📄 [README.md](Task-10/README.md)
-    - 📄 [Chart.yaml](Task-10/Chart.yaml)
-    - 📄 [deployment.yaml](Task-10/deployment.yaml)
-    - 🖼️ [screenshots](Task-10/screenshots)
-  - 📁 [Task-11 — Secrets & Security](Task-11)
-    - 📄 [README.md](Task-11/README.md)
-    - 🖼️ [screenshots](Task-11/screenshots)
-  - 📁 [Task-12 — Deployment & Rollback](Task-12)
-    - 📄 [README.md](Task-12/README.md)
-    - 🖼️ [screenshots](Task-12/screenshots)
-  - 📁 [Task-13 — Monitoring & Logging](Task-13)
-    - 📄 [README.md](Task-13/README.md)
-    - 🖼️ [screenshots](Task-13/screenshots)
-  - 📄 [README.md](README.md)
+| S.No | Security Area | Practice |
+|---:|---|---|
+| 01 | Credentials | Docker Hub, GitHub and SonarQube tokens are stored in Jenkins Credentials, never in code or Jenkinsfile |
+| 02 | Secrets | No passwords, tokens or keys are committed to the GitHub repository |
+| 03 | Kubernetes Secrets | Sensitive values are kept in Kubernetes Secrets, not in plain values.yaml |
+| 04 | Deployment Control | Jenkins does not deploy with `kubectl`; only Argo CD deploys from Git |
+| 05 | Image Versioning | Every image is pushed with a unique version tag, not only `latest` |
+| 06 | Code Quality | SonarQube analysis runs on every pipeline execution |
+| 07 | Evidence Safety | Passwords, tokens and secrets are masked in all screenshots |
 
-## 6. Technologies Used
+## 7. Application URL
+
+| Item | Link / Details |
+|---|---|
+| Live Application | [Open Java Application](http://98.81.154.45:8080/) |
+| Project Repository | [Open GitHub Repository](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD) |
+
+The live endpoint depends on the AWS infrastructure remaining active. Keep screenshots of the application from the time it was running.
+
+## 8. Technologies Used
 
 | S.No | Technology | Purpose | Status |
 |---:|---|---|---|
-| 1 | Java 21 | Application implementation | ✅ Completed |
-| 2 | Maven | Build and dependency management | ✅ Completed |
-| 3 | Jenkins | CI pipeline automation | ✅ Completed |
-| 4 | SonarQube | Static code analysis | ✅ Completed |
-| 5 | Docker | Application containerization | ✅ Completed |
-| 6 | Docker Hub | Container image registry | ✅ Completed |
-| 7 | Helm | Kubernetes package management | ✅ Completed |
-| 8 | Kubernetes | Container orchestration | ✅ Completed |
-| 9 | Argo CD | GitOps-based deployment synchronization | ✅ Completed |
+| 01 | Java 21 | Application implementation | ✅ Completed |
+| 02 | Maven | Build and dependency management | ✅ Completed |
+| 03 | Jenkins | CI pipeline automation | ✅ Completed |
+| 04 | SonarQube | Static code analysis | ✅ Completed |
+| 05 | Docker | Application containerization | ✅ Completed |
+| 06 | Docker Hub | Container image registry | ✅ Completed |
+| 07 | Helm | Kubernetes package management | ✅ Completed |
+| 08 | Kubernetes | Container orchestration | ✅ Completed |
+| 09 | Argo CD | GitOps-based deployment synchronization | ✅ Completed |
 | 10 | GitHub | Source code and configuration version control | ✅ Completed |
 
-## 7. Final Checklist
+## 9. Final Submission Checklist
 
-| S.No | Task | Status |
-|---:|---|---|
-| 1 | Task 01: Java Application | ✅ Completed |
-| 2 | Task 02: Maven Build & Test | ✅ Completed |
-| 3 | Task 03: SonarQube | ✅ Completed |
-| 4 | Task 04: Docker | ✅ Completed |
-| 5 | Task 05: Container Registry | ✅ Completed |
-| 6 | Task 06: Helm | ✅ Completed |
-| 7 | Task 07: Kubernetes | ✅ Completed |
-| 8 | Task 08: Argo CD | ✅ Completed |
-| 9 | Task 09: Jenkins CI Pipeline | ✅ Completed |
-| 10 | Task 10: Jenkins → Argo CD GitOps | ✅ Completed |
-| 11 | Task 11: Secrets & Security | ✅ Completed |
-| 12 | Task 12: Deployment & Rollback | ✅ Completed |
-| 13 | Task 13: Monitoring & Logging | ✅ Completed |
+| S.No | Requirement | Evidence | Status |
+|---:|---|---|---|
+| 01 | Java Application | Application source and output screenshot | ✅ Completed |
+| 02 | Maven Build & Test | Build and test results | ✅ Completed |
+| 03 | SonarQube | Analysis and Quality Gate evidence | ✅ Completed |
+| 04 | Docker | Image build and container run evidence | ✅ Completed |
+| 05 | Container Registry | Versioned image in Docker Hub | ✅ Completed |
+| 06 | Helm | Chart and values evidence | ✅ Completed |
+| 07 | Kubernetes | Deployment, pods and service evidence | ✅ Completed |
+| 08 | Argo CD | Synced and Healthy application evidence | ✅ Completed |
+| 09 | Jenkins CI Pipeline | Pipeline execution evidence | ✅ Completed |
+| 10 | Jenkins → Argo CD GitOps | values.yaml update and auto-sync evidence | ✅ Completed |
+| 11 | Secrets & Security | Credentials and secret handling evidence | ✅ Completed |
+| 12 | Deployment & Rollback | Rollout and rollback evidence | ✅ Completed |
+| 13 | Monitoring & Logging | Metrics and application logs | ✅ Completed |
 
-**Java Application CI/CD Project — All 13 Tasks Completed Successfully!** ✅
+**Project: Java Application CI/CD Using Jenkins, Maven, SonarQube, Docker, Helm & Argo CD — All 13 Tasks Completed**
