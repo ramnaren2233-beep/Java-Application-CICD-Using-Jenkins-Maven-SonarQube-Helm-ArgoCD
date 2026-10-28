@@ -11,7 +11,7 @@ A production-oriented Java Application CI/CD workflow using Jenkins, Maven, Sona
 | Application Architecture | Java Application → Docker Image → Helm Chart → Kubernetes |
 | CI/CD Pipeline | GitHub → Jenkins → Maven Build & Test → SonarQube → Docker Build → Docker Hub → Helm values update → Argo CD → Kubernetes |
 | GitHub Repository | [Open Project Repository](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD) |
-| Application Evidence | [Open Application Screenshot](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/Screenshots/application-running.png) |
+| Application URL | [Open Application URL](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-01/Screenshots/task-01-maven-test_success.png) |
 | Final Submission | Task README, Screenshots and Execution Evidence |
 
 > Jenkins handles Continuous Integration. Argo CD handles Continuous Deployment. Jenkins does not deploy directly using `kubectl`.
@@ -79,7 +79,7 @@ A production-oriented Java Application CI/CD workflow using Jenkins, Maven, Sona
 | 06 | Kubernetes Deployment | [deployment.yaml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/deployment.yaml) |
 | 07 | Argo CD Application | [argocd-application.yaml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-08/Task-08/argocd-application.yaml) |
 | 08 | Container Registry | [Docker Hub Image Tags](https://hub.docker.com/r/naren2026aws/task10-java-app/tags) |
-| 09 | Jenkins CI Job Evidence | [Open Jenkins Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-09/Screenshots) |
+| 09 | Application URL | [Open Application URL](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-01/Screenshots/task-01-maven-test_success.png) |
 
 ## 5. CI/CD Pipeline Flow
 
@@ -117,18 +117,12 @@ Developer Pushes Code to GitHub
   Running Java Application
 ```
 
-## 6. Application Evidence
-
-The application was deployed and verified running on AWS. The infrastructure was terminated after completion, so the evidence is provided as a screenshot.
+## 6. Application URL
 
 | Item | Link / Details |
 |---|---|
-| Application Screenshot | [Open Application Screenshot](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/Screenshots/application-running.png) |
+| Application URL | [Open Application URL](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-01/Screenshots/task-01-maven-test_success.png) |
 | Project Repository | [Open GitHub Repository](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD) |
-
-**Application running on AWS (preview):**
-
-![Application Running](Task-10/Screenshots/application-running.png)
 
 ## 7. Technologies Used
 
