@@ -11,10 +11,12 @@ A production-oriented Java Application CI/CD workflow using Jenkins, Maven, Sona
 | Application Architecture | Java Application → Docker Image → Helm Chart → Kubernetes |
 | CI/CD Pipeline | GitHub → Jenkins → Maven Build & Test → SonarQube → Docker Build → Docker Hub → Helm values update → Argo CD → Kubernetes |
 | GitHub Repository | [Open Project Repository](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD) |
-| Application URL | [Open Java Application](http://98.81.154.45:8080/) |
+| Application Evidence | [Open Application Screenshot](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/Screenshots/application-running.png) |
 | Final Submission | Task README, Screenshots and Execution Evidence |
 
 > Jenkins handles Continuous Integration. Argo CD handles Continuous Deployment. Jenkins does not deploy directly using `kubectl`.
+
+> **Note:** The AWS infrastructure (EC2 instances) was terminated after project completion to avoid cost. All execution evidence is available in the Screenshots folders linked below.
 
 ## 2. Project Tree Flow (Task 01–13)
 
@@ -77,7 +79,7 @@ A production-oriented Java Application CI/CD workflow using Jenkins, Maven, Sona
 | 06 | Kubernetes Deployment | [deployment.yaml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/deployment.yaml) |
 | 07 | Argo CD Application | [argocd-application.yaml](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-08/Task-08/argocd-application.yaml) |
 | 08 | Container Registry | [Docker Hub Image Tags](https://hub.docker.com/r/naren2026aws/task10-java-app/tags) |
-| 09 | Jenkins CI Job | [Open Jenkins Job](http://54.173.142.117:8080/job/Task9-Java-CI-Pipeline/) |
+| 09 | Jenkins CI Job Evidence | [Open Jenkins Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-09/Screenshots) |
 
 ## 5. CI/CD Pipeline Flow
 
@@ -115,30 +117,20 @@ Developer Pushes Code to GitHub
   Running Java Application
 ```
 
-## 6. Security (Important)
+## 6. Application Evidence
 
-Security evidence is documented in [Task 11 README](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-11/README.md) and [Task 11 Screenshots](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/tree/main/Task-11/Screenshots).
-
-| S.No | Security Area | Practice |
-|---:|---|---|
-| 01 | Credentials | Docker Hub, GitHub and SonarQube tokens are stored in Jenkins Credentials, never in code or Jenkinsfile |
-| 02 | Secrets | No passwords, tokens or keys are committed to the GitHub repository |
-| 03 | Kubernetes Secrets | Sensitive values are kept in Kubernetes Secrets, not in plain values.yaml |
-| 04 | Deployment Control | Jenkins does not deploy with `kubectl`; only Argo CD deploys from Git |
-| 05 | Image Versioning | Every image is pushed with a unique version tag, not only `latest` |
-| 06 | Code Quality | SonarQube analysis runs on every pipeline execution |
-| 07 | Evidence Safety | Passwords, tokens and secrets are masked in all screenshots |
-
-## 7. Application URL
+The application was deployed and verified running on AWS. The infrastructure was terminated after completion, so the evidence is provided as a screenshot.
 
 | Item | Link / Details |
 |---|---|
-| Live Application | [Open Java Application](http://98.81.154.45:8080/) |
+| Application Screenshot | [Open Application Screenshot](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD/blob/main/Task-10/Screenshots/application-running.png) |
 | Project Repository | [Open GitHub Repository](https://github.com/ramnaren2233-beep/Java-Application-CICD-Using-Jenkins-Maven-SonarQube-Helm-ArgoCD) |
 
-The live endpoint depends on the AWS infrastructure remaining active. Keep screenshots of the application from the time it was running.
+**Application running on AWS (preview):**
 
-## 8. Technologies Used
+![Application Running](Task-10/Screenshots/application-running.png)
+
+## 7. Technologies Used
 
 | S.No | Technology | Purpose | Status |
 |---:|---|---|---|
@@ -153,7 +145,7 @@ The live endpoint depends on the AWS infrastructure remaining active. Keep scree
 | 09 | Argo CD | GitOps-based deployment synchronization | ✅ Completed |
 | 10 | GitHub | Source code and configuration version control | ✅ Completed |
 
-## 9. Final Submission Checklist
+## 8. Final Submission Checklist
 
 | S.No | Requirement | Evidence | Status |
 |---:|---|---|---|
